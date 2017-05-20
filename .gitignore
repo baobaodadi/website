@@ -11,3 +11,6 @@ public/chunks/
 npm-debug.*
 log/*.pidfile
 hosts
+app.js
+routes/
+views/
