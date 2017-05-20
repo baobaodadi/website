@@ -1,16 +1,4 @@
-# Created by .ignore support plugin (hsz.mobi)
 node_modules/
 .idea/
 *.xml
-.happypack/
-public/react/
-public/index.html
-public/sale_album/index.html
-public/sale_album/bundle.js
-public/chunks/
-npm-debug.*
-log/*.pidfile
-hosts
-app.js
-routes/
-views/
+
