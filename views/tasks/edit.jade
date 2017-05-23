@@ -12,7 +12,8 @@ form(method='post', action='/tasks/' + task.id)
         label Task
         div.input
           input(name='task[task]', class='xlarge', value="#{task.task}")
+          input(name='task[name]', class='xlarge', value="#{task.name}")
       div.actions
         input(type='submit', value='Save', class='btn primary')
-          button(type='reset', class='btn') Cancel
+        button(type='reset', class='btn') Cancel
 

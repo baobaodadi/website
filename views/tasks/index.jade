@@ -14,9 +14,10 @@ p
       th
       each task in docs
         tr
-          td #{task.task}
           td
-            a.btn(href="/tasks/#{task.id}/edit") Edit
+            a(href="#{task.task}") #{task.name}
+          //td
+          //  a.btn(href="/tasks/#{task.id}/edit") Edit
           td
             form(method='post', action='/tasks/' + task.id)
               input(name='_method', value='DELETE', type='hidden')

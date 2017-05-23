@@ -7,7 +7,7 @@ var express = require('express'),
     routes = require('./routes'),
     mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/todo_development')
+mongoose.connect('mongodb://localhost/db')
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
@@ -16,7 +16,8 @@ function validatePresenceOf(value) {
 }
 
 var Task = new Schema({
-  task : { type: String, validate: [validatePresenceOf, 'a task is required'] }
+  task : { type: String, validate: [validatePresenceOf, 'a task is required'] },
+  name : { type: String, validate: [validatePresenceOf, 'a name is required'] }
 });
 
 var Task = mongoose.model('Task', Task);
@@ -90,7 +91,7 @@ app.get('/tasks/:id/edit', function(req, res){
 
 app.put('/tasks/:id', function(req, res){
   Task.findById(req.params.id, function (err, doc){
-    doc.task = req.body.task.task;
+    doc.task = req.body.task;
     doc.save(function(err) {
       if (!err){
         req.flash('info', 'Task updated');
@@ -114,5 +115,5 @@ app.del('/tasks/:id', function(req, res){
   });
 });
 
-app.listen(19888);
+app.listen(80);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
